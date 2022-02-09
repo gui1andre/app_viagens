@@ -73,537 +73,536 @@ class _CorpoState extends State<Corpo> {
         children: [
           Container(
             child: Column(
+              mainAxisSize: MainAxisSize.max,
               children: [
                 Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: SizedBox(
                     width: double.maxFinite,
-                    child: Expanded(
-                      child: Container(
-                        decoration: BoxDecoration(
-                            color: Colors.white,
-                            border: Border.all(color: Colors.black),
-                            borderRadius: BorderRadius.circular(16),
-                            boxShadow: [
-                              BoxShadow(
-                                color: Colors.grey.withOpacity(0.5),
-                                spreadRadius: 5,
-                                blurRadius: 7,
-                                offset: const Offset(
-                                    0, 3), // changes position of shadow
+                    child: Container(
+                      decoration: BoxDecoration(
+                          color: Colors.white,
+                          border: Border.all(color: Colors.black),
+                          borderRadius: BorderRadius.circular(16),
+                          boxShadow: [
+                            BoxShadow(
+                              color: Colors.grey.withOpacity(0.5),
+                              spreadRadius: 5,
+                              blurRadius: 7,
+                              offset: const Offset(
+                                  0, 3), // changes position of shadow
+                            ),
+                          ]),
+                      child: Column(
+                        children: [
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Padding(
+                                padding:
+                                    const EdgeInsets.fromLTRB(24, 8, 24, 16),
+                                child: Column(
+                                  children: [
+                                    Container(
+                                      child: Column(
+                                        children: [
+                                          IconButton(
+                                            icon: const Icon(
+                                                Icons.airplanemode_active),
+                                            color: _aereo
+                                                ? Colors.white
+                                                : Colors.black,
+                                            iconSize: 24,
+                                            tooltip: 'Aéreo',
+                                            onPressed: () {
+                                              setState(() {
+                                                _aereo = !_aereo;
+                                              });
+                                            },
+                                          ),
+                                        ],
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.start,
+                                      ),
+                                      width: 48,
+                                      height: 48,
+                                      decoration: BoxDecoration(
+                                        color: _aereo
+                                            ? Colors.indigo
+                                            : Colors.white,
+                                        shape: BoxShape.circle,
+                                      ),
+                                    ),
+                                    Text(
+                                      'Aéreo',
+                                      style: TextStyle(
+                                        fontWeight: _aereo
+                                            ? FontWeight.bold
+                                            : FontWeight.normal,
+                                        color: _aereo
+                                            ? Colors.indigo
+                                            : Colors.black,
+                                        fontSize: 16,
+                                      ),
+                                    ),
+                                  ],
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                ),
                               ),
-                            ]),
-                        child: Column(
-                          children: [
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              Padding(
+                                padding:
+                                    const EdgeInsets.fromLTRB(24, 8, 24, 16),
+                                child: Column(
+                                  children: [
+                                    Container(
+                                      child: Column(
+                                        children: [
+                                          IconButton(
+                                            icon: const Icon(Icons.apartment),
+                                            color: _hotel
+                                                ? Colors.white
+                                                : Colors.black,
+                                            iconSize: 24,
+                                            tooltip: 'Hotel',
+                                            onPressed: () {
+                                              setState(() {
+                                                _hotel = !_hotel;
+                                              });
+                                            },
+                                          ),
+                                        ],
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.start,
+                                      ),
+                                      width: 48,
+                                      height: 48,
+                                      decoration: BoxDecoration(
+                                        color: _hotel
+                                            ? Colors.indigo
+                                            : Colors.white,
+                                        shape: BoxShape.circle,
+                                      ),
+                                    ),
+                                    Text(
+                                      'Hotel',
+                                      style: TextStyle(
+                                        fontWeight: _hotel
+                                            ? FontWeight.bold
+                                            : FontWeight.normal,
+                                        color: _hotel
+                                            ? Colors.indigo
+                                            : Colors.black,
+                                        fontSize: 16,
+                                      ),
+                                    ),
+                                  ],
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                ),
+                              ),
+                              Padding(
+                                padding:
+                                    const EdgeInsets.fromLTRB(24, 8, 24, 16),
+                                child: Column(
+                                  children: [
+                                    Container(
+                                      child: Column(
+                                        children: [
+                                          IconButton(
+                                            icon: const Icon(
+                                                Icons.directions_car),
+                                            color: _veiculo
+                                                ? Colors.white
+                                                : Colors.black,
+                                            iconSize: 24,
+                                            tooltip: 'Veiculo',
+                                            onPressed: () {
+                                              setState(() {
+                                                _veiculo = !_veiculo;
+                                              });
+                                            },
+                                          ),
+                                        ],
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.start,
+                                      ),
+                                      width: 48,
+                                      height: 48,
+                                      decoration: BoxDecoration(
+                                        color: _veiculo
+                                            ? Colors.indigo
+                                            : Colors.white,
+                                        shape: BoxShape.circle,
+                                      ),
+                                    ),
+                                    Text(
+                                      'Veiculo',
+                                      style: TextStyle(
+                                        fontWeight: _veiculo
+                                            ? FontWeight.bold
+                                            : FontWeight.normal,
+                                        color: _veiculo
+                                            ? Colors.indigo
+                                            : Colors.black,
+                                        fontSize: 16,
+                                      ),
+                                    ),
+                                  ],
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                ),
+                              ),
+                            ],
+                          ),
+                          Visibility(
+                            visible: _aereo,
+                            child: Column(
                               children: [
-                                Padding(
-                                  padding:
-                                      const EdgeInsets.fromLTRB(24, 8, 24, 16),
-                                  child: Column(
-                                    children: [
-                                      Container(
-                                        child: Column(
-                                          children: [
-                                            IconButton(
-                                              icon: const Icon(
-                                                  Icons.airplanemode_active),
-                                              color: _aereo
-                                                  ? Colors.white
-                                                  : Colors.black,
-                                              iconSize: 24,
-                                              tooltip: 'Aéreo',
-                                              onPressed: () {
-                                                setState(() {
-                                                  _aereo = !_aereo;
-                                                });
-                                              },
-                                            ),
-                                          ],
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.start,
-                                        ),
-                                        width: 48,
-                                        height: 48,
-                                        decoration: BoxDecoration(
-                                          color: _aereo
-                                              ? Colors.indigo
-                                              : Colors.white,
-                                          shape: BoxShape.circle,
-                                        ),
+                                const Padding(
+                                  padding: EdgeInsets.fromLTRB(8, 0, 8, 0),
+                                  child: Align(
+                                    child: Text(
+                                      'Aéreo:',
+                                      textAlign: TextAlign.left,
+                                      style: TextStyle(
+                                        color: Colors.indigo,
+                                        fontSize: 24,
                                       ),
-                                      Text(
-                                        'Aéreo',
-                                        style: TextStyle(
-                                          fontWeight: _aereo
-                                              ? FontWeight.bold
-                                              : FontWeight.normal,
-                                          color: _aereo
-                                              ? Colors.indigo
-                                              : Colors.black,
-                                          fontSize: 16,
-                                        ),
-                                      ),
-                                    ],
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceBetween,
+                                    ),
+                                    alignment: Alignment.centerLeft,
                                   ),
                                 ),
-                                Padding(
-                                  padding:
-                                      const EdgeInsets.fromLTRB(24, 8, 24, 16),
-                                  child: Column(
-                                    children: [
-                                      Container(
-                                        child: Column(
-                                          children: [
-                                            IconButton(
-                                              icon: const Icon(Icons.apartment),
-                                              color: _hotel
-                                                  ? Colors.white
-                                                  : Colors.black,
-                                              iconSize: 24,
-                                              tooltip: 'Hotel',
-                                              onPressed: () {
-                                                setState(() {
-                                                  _hotel = !_hotel;
-                                                });
-                                              },
-                                            ),
-                                          ],
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.start,
-                                        ),
-                                        width: 48,
-                                        height: 48,
-                                        decoration: BoxDecoration(
-                                          color: _hotel
-                                              ? Colors.indigo
-                                              : Colors.white,
-                                          shape: BoxShape.circle,
-                                        ),
-                                      ),
-                                      Text(
-                                        'Hotel',
-                                        style: TextStyle(
-                                          fontWeight: _hotel
-                                              ? FontWeight.bold
-                                              : FontWeight.normal,
-                                          color: _hotel
-                                              ? Colors.indigo
-                                              : Colors.black,
-                                          fontSize: 16,
-                                        ),
-                                      ),
-                                    ],
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceBetween,
+                                const Padding(
+                                  padding: EdgeInsets.fromLTRB(8, 16, 8, 16),
+                                  child: TextField(
+                                    obscureText: true,
+                                    keyboardType: TextInputType.text,
+                                    decoration: InputDecoration(
+                                      fillColor: Colors.indigo,
+                                      border: OutlineInputBorder(),
+                                      labelText: 'Origem',
+                                    ),
                                   ),
                                 ),
-                                Padding(
-                                  padding:
-                                      const EdgeInsets.fromLTRB(24, 8, 24, 16),
-                                  child: Column(
-                                    children: [
-                                      Container(
-                                        child: Column(
-                                          children: [
-                                            IconButton(
-                                              icon: const Icon(
-                                                  Icons.directions_car),
-                                              color: _veiculo
-                                                  ? Colors.white
-                                                  : Colors.black,
-                                              iconSize: 24,
-                                              tooltip: 'Veiculo',
+                                const Padding(
+                                  padding: EdgeInsets.fromLTRB(8, 16, 8, 16),
+                                  child: TextField(
+                                    obscureText: true,
+                                    keyboardType: TextInputType.text,
+                                    decoration: InputDecoration(
+                                      border: OutlineInputBorder(),
+                                      labelText: 'Destino',
+                                    ),
+                                  ),
+                                ),
+                                Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    Padding(
+                                      padding: const EdgeInsets.fromLTRB(
+                                          8, 16, 8, 16),
+                                      child: Container(
+                                        width: 150,
+                                        child: TextField(
+                                          obscureText: true,
+                                          keyboardType:
+                                              TextInputType.datetime,
+                                          decoration: InputDecoration(
+                                            border: OutlineInputBorder(),
+                                            labelText: 'Data Ida',
+                                            suffixIcon: IconButton(
+                                              icon: Icon(Icons.date_range),
                                               onPressed: () {
-                                                setState(() {
-                                                  _veiculo = !_veiculo;
-                                                });
+                                                Future<DateTime?> dataIda =
+                                                    showDatePicker(
+                                                        context: context,
+                                                        initialDate:
+                                                            DateTime.now(),
+                                                        firstDate:
+                                                            DateTime(2022),
+                                                        lastDate:
+                                                            DateTime(2099));
                                               },
                                             ),
-                                          ],
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.start,
-                                        ),
-                                        width: 48,
-                                        height: 48,
-                                        decoration: BoxDecoration(
-                                          color: _veiculo
-                                              ? Colors.indigo
-                                              : Colors.white,
-                                          shape: BoxShape.circle,
+                                          ),
                                         ),
                                       ),
-                                      Text(
-                                        'Veiculo',
-                                        style: TextStyle(
-                                          fontWeight: _veiculo
-                                              ? FontWeight.bold
-                                              : FontWeight.normal,
-                                          color: _veiculo
-                                              ? Colors.indigo
-                                              : Colors.black,
-                                          fontSize: 16,
+                                    ),
+                                    Padding(
+                                      padding: const EdgeInsets.fromLTRB(
+                                          8, 16, 8, 16),
+                                      child: Container(
+                                        width: 150,
+                                        child: TextField(
+                                          obscureText: true,
+                                          keyboardType:
+                                              TextInputType.datetime,
+                                          decoration: InputDecoration(
+                                            border: OutlineInputBorder(),
+                                            labelText: 'Data Volta',
+                                            suffixIcon: IconButton(
+                                              icon: Icon(Icons.date_range),
+                                              onPressed: () async {
+                                                Future<DateTime?> dataIda =
+                                                    showDatePicker(
+                                                        context: context,
+                                                        initialDate:
+                                                            DateTime.now(),
+                                                        firstDate:
+                                                            DateTime(2022),
+                                                        lastDate:
+                                                            DateTime(2099));
+                                                if (dataIda != null &&
+                                                    dataIda != _dataIda) {
+                                                  setState(() {
+                                                    debugPrint(
+                                                        'chegamos aqui');
+                                                    _dataIda ==
+                                                        dataIda
+                                                            as TextEditingController;
+                                                  });
+                                                }
+                                              },
+                                            ),
+                                          ),
                                         ),
                                       ),
-                                    ],
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceBetween,
-                                  ),
+                                    ),
+                                  ],
                                 ),
                               ],
                             ),
-                            Visibility(
-                              visible: _aereo,
-                              child: Column(
-                                children: [
-                                  const Padding(
-                                    padding: EdgeInsets.fromLTRB(8, 0, 8, 0),
-                                    child: Align(
-                                      child: Text(
-                                        'Aéreo:',
-                                        textAlign: TextAlign.left,
-                                        style: TextStyle(
-                                          color: Colors.indigo,
-                                          fontSize: 24,
-                                        ),
-                                      ),
-                                      alignment: Alignment.centerLeft,
-                                    ),
-                                  ),
-                                  const Padding(
-                                    padding: EdgeInsets.fromLTRB(8, 16, 8, 16),
-                                    child: TextField(
-                                      obscureText: true,
-                                      keyboardType: TextInputType.number,
-                                      decoration: InputDecoration(
-                                        fillColor: Colors.indigo,
-                                        border: OutlineInputBorder(),
-                                        labelText: 'Origem',
+                          ),
+                          Visibility(
+                            visible: _hotel,
+                            child: Column(
+                              children: [
+                                const Padding(
+                                  padding: EdgeInsets.fromLTRB(8, 0, 8, 0),
+                                  child: Align(
+                                    child: Text(
+                                      'Hotel:',
+                                      textAlign: TextAlign.left,
+                                      style: TextStyle(
+                                        color: Colors.indigo,
+                                        fontSize: 24,
                                       ),
                                     ),
+                                    alignment: Alignment.centerLeft,
                                   ),
-                                  const Padding(
-                                    padding: EdgeInsets.fromLTRB(8, 16, 8, 16),
-                                    child: TextField(
-                                      obscureText: true,
-                                      keyboardType: TextInputType.number,
-                                      decoration: InputDecoration(
-                                        border: OutlineInputBorder(),
-                                        labelText: 'Destino',
-                                      ),
+                                ),
+                                const Padding(
+                                  padding: EdgeInsets.fromLTRB(8, 16, 8, 16),
+                                  child: TextField(
+                                    obscureText: true,
+                                    keyboardType: TextInputType.text,
+                                    decoration: InputDecoration(
+                                      border: OutlineInputBorder(),
+                                      labelText: 'Cidade',
                                     ),
                                   ),
-                                  Row(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceBetween,
-                                    children: [
-                                      Padding(
-                                        padding: const EdgeInsets.fromLTRB(
-                                            8, 16, 8, 16),
-                                        child: Container(
-                                          width: 150,
-                                          child: TextField(
-                                            obscureText: true,
-                                            keyboardType:
-                                                TextInputType.datetime,
-                                            decoration: InputDecoration(
-                                              border: OutlineInputBorder(),
-                                              labelText: 'Data Ida',
-                                              suffixIcon: IconButton(
-                                                icon: Icon(Icons.date_range),
-                                                onPressed: () {
-                                                  Future<DateTime?> dataIda =
-                                                      showDatePicker(
-                                                          context: context,
-                                                          initialDate:
-                                                              DateTime.now(),
-                                                          firstDate:
-                                                              DateTime(2022),
-                                                          lastDate:
-                                                              DateTime(2099));
-                                                },
-                                              ),
+                                ),
+                                Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    Padding(
+                                      padding: const EdgeInsets.fromLTRB(
+                                          8, 16, 8, 16),
+                                      child: Container(
+                                        width: 150,
+                                        child: TextField(
+                                          obscureText: true,
+                                          keyboardType:
+                                              TextInputType.datetime,
+                                          decoration: InputDecoration(
+                                            border: OutlineInputBorder(),
+                                            labelText: 'Checkin',
+                                            suffixIcon: IconButton(
+                                              icon: Icon(Icons.date_range),
+                                              onPressed: () {
+                                                Future<DateTime?> dataIda =
+                                                    showDatePicker(
+                                                        context: context,
+                                                        initialDate:
+                                                            DateTime.now(),
+                                                        firstDate:
+                                                            DateTime(2022),
+                                                        lastDate:
+                                                            DateTime(2099));
+                                              },
                                             ),
                                           ),
                                         ),
                                       ),
-                                      Padding(
-                                        padding: const EdgeInsets.fromLTRB(
-                                            8, 16, 8, 16),
-                                        child: Container(
-                                          width: 150,
-                                          child: TextField(
-                                            obscureText: true,
-                                            keyboardType:
-                                                TextInputType.datetime,
-                                            decoration: InputDecoration(
-                                              border: OutlineInputBorder(),
-                                              labelText: 'Data Volta',
-                                              suffixIcon: IconButton(
-                                                icon: Icon(Icons.date_range),
-                                                onPressed: () async {
-                                                  Future<DateTime?> dataIda =
-                                                      showDatePicker(
-                                                          context: context,
-                                                          initialDate:
-                                                              DateTime.now(),
-                                                          firstDate:
-                                                              DateTime(2022),
-                                                          lastDate:
-                                                              DateTime(2099));
-                                                  if (dataIda != null &&
-                                                      dataIda != _dataIda) {
-                                                    setState(() {
-                                                      debugPrint(
-                                                          'chegamos aqui');
-                                                      _dataIda ==
-                                                          dataIda
-                                                              as TextEditingController;
-                                                    });
-                                                  }
-                                                },
-                                              ),
+                                    ),
+                                    Padding(
+                                      padding: const EdgeInsets.fromLTRB(
+                                          8, 16, 8, 16),
+                                      child: Container(
+                                        width: 150,
+                                        child: TextField(
+                                          obscureText: true,
+                                          keyboardType:
+                                              TextInputType.datetime,
+                                          decoration: InputDecoration(
+                                            border: OutlineInputBorder(),
+                                            labelText: 'Checkin',
+                                            suffixIcon: IconButton(
+                                              icon: Icon(Icons.date_range),
+                                              onPressed: () async {
+                                                Future<DateTime?> dataIda =
+                                                    showDatePicker(
+                                                        context: context,
+                                                        initialDate:
+                                                            DateTime.now(),
+                                                        firstDate:
+                                                            DateTime(2022),
+                                                        lastDate:
+                                                            DateTime(2099));
+                                                if (dataIda != null &&
+                                                    dataIda != _dataIda) {
+                                                  setState(() {
+                                                    debugPrint(
+                                                        'chegamos aqui');
+                                                    _dataIda ==
+                                                        dataIda
+                                                            as TextEditingController;
+                                                  });
+                                                }
+                                              },
                                             ),
                                           ),
                                         ),
                                       ),
-                                    ],
-                                  ),
-                                ],
-                              ),
+                                    ),
+                                  ],
+                                ),
+                              ],
                             ),
-                            Visibility(
-                              visible: _hotel,
-                              child: Column(
-                                children: [
-                                  const Padding(
-                                    padding: EdgeInsets.fromLTRB(8, 0, 8, 0),
-                                    child: Align(
-                                      child: Text(
-                                        'Hotel:',
-                                        textAlign: TextAlign.left,
-                                        style: TextStyle(
-                                          color: Colors.indigo,
-                                          fontSize: 24,
-                                        ),
-                                      ),
-                                      alignment: Alignment.centerLeft,
-                                    ),
-                                  ),
-                                  const Padding(
-                                    padding: EdgeInsets.fromLTRB(8, 16, 8, 16),
-                                    child: TextField(
-                                      obscureText: true,
-                                      keyboardType: TextInputType.number,
-                                      decoration: InputDecoration(
-                                        border: OutlineInputBorder(),
-                                        labelText: 'Cidade',
+                          ),
+                          Visibility(
+                            visible: _veiculo,
+                            child: Column(
+                              children: [
+                                const Padding(
+                                  padding: EdgeInsets.fromLTRB(8, 0, 8, 0),
+                                  child: Align(
+                                    child: Text(
+                                      'Veiculo:',
+                                      textAlign: TextAlign.left,
+                                      style: TextStyle(
+                                        color: Colors.indigo,
+                                        fontSize: 24,
                                       ),
                                     ),
+                                    alignment: Alignment.centerLeft,
                                   ),
-                                  Row(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceBetween,
-                                    children: [
-                                      Padding(
-                                        padding: const EdgeInsets.fromLTRB(
-                                            8, 16, 8, 16),
-                                        child: Container(
-                                          width: 150,
-                                          child: TextField(
-                                            obscureText: true,
-                                            keyboardType:
-                                                TextInputType.datetime,
-                                            decoration: InputDecoration(
-                                              border: OutlineInputBorder(),
-                                              labelText: 'Checkin',
-                                              suffixIcon: IconButton(
-                                                icon: Icon(Icons.date_range),
-                                                onPressed: () {
-                                                  Future<DateTime?> dataIda =
-                                                      showDatePicker(
-                                                          context: context,
-                                                          initialDate:
-                                                              DateTime.now(),
-                                                          firstDate:
-                                                              DateTime(2022),
-                                                          lastDate:
-                                                              DateTime(2099));
-                                                },
-                                              ),
+                                ),
+                                const Padding(
+                                  padding: EdgeInsets.fromLTRB(8, 16, 8, 16),
+                                  child: TextField(
+                                    obscureText: true,
+                                    keyboardType: TextInputType.text,
+                                    decoration: InputDecoration(
+                                      border: OutlineInputBorder(),
+                                      labelText: 'Local de Retirada',
+                                    ),
+                                  ),
+                                ),
+                                const Padding(
+                                  padding: EdgeInsets.fromLTRB(8, 16, 8, 16),
+                                  child: TextField(
+                                    obscureText: true,
+                                    keyboardType: TextInputType.number,
+                                    decoration: InputDecoration(
+                                      border: OutlineInputBorder(),
+                                      labelText: 'Local de Devolução',
+                                    ),
+                                  ),
+                                ),
+                                Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    Padding(
+                                      padding: const EdgeInsets.fromLTRB(
+                                          8, 16, 8, 16),
+                                      child: Container(
+                                        width: 150,
+                                        child: TextField(
+                                          obscureText: true,
+                                          keyboardType:
+                                              TextInputType.datetime,
+                                          decoration: InputDecoration(
+                                            border: OutlineInputBorder(),
+                                            labelText: 'Retirada',
+                                            suffixIcon: IconButton(
+                                              icon: Icon(Icons.date_range),
+                                              onPressed: () {
+                                                Future<DateTime?> dataIda =
+                                                    showDatePicker(
+                                                        context: context,
+                                                        initialDate:
+                                                            DateTime.now(),
+                                                        firstDate:
+                                                            DateTime(2022),
+                                                        lastDate:
+                                                            DateTime(2099));
+                                              },
                                             ),
                                           ),
                                         ),
                                       ),
-                                      Padding(
-                                        padding: const EdgeInsets.fromLTRB(
-                                            8, 16, 8, 16),
-                                        child: Container(
-                                          width: 150,
-                                          child: TextField(
-                                            obscureText: true,
-                                            keyboardType:
-                                                TextInputType.datetime,
-                                            decoration: InputDecoration(
-                                              border: OutlineInputBorder(),
-                                              labelText: 'Checkin',
-                                              suffixIcon: IconButton(
-                                                icon: Icon(Icons.date_range),
-                                                onPressed: () async {
-                                                  Future<DateTime?> dataIda =
-                                                      showDatePicker(
-                                                          context: context,
-                                                          initialDate:
-                                                              DateTime.now(),
-                                                          firstDate:
-                                                              DateTime(2022),
-                                                          lastDate:
-                                                              DateTime(2099));
-                                                  if (dataIda != null &&
-                                                      dataIda != _dataIda) {
-                                                    setState(() {
-                                                      debugPrint(
-                                                          'chegamos aqui');
-                                                      _dataIda ==
-                                                          dataIda
-                                                              as TextEditingController;
-                                                    });
-                                                  }
-                                                },
-                                              ),
+                                    ),
+                                    Padding(
+                                      padding: const EdgeInsets.fromLTRB(
+                                          8, 16, 8, 16),
+                                      child: Container(
+                                        width: 150,
+                                        child: TextField(
+                                          obscureText: true,
+                                          keyboardType:
+                                              TextInputType.datetime,
+                                          decoration: InputDecoration(
+                                            border: OutlineInputBorder(),
+                                            labelText: 'Devolução',
+                                            suffixIcon: IconButton(
+                                              icon: Icon(Icons.date_range),
+                                              onPressed: () async {
+                                                Future<DateTime?> dataIda =
+                                                    showDatePicker(
+                                                        context: context,
+                                                        initialDate:
+                                                            DateTime.now(),
+                                                        firstDate:
+                                                            DateTime(2022),
+                                                        lastDate:
+                                                            DateTime(2099));
+                                                if (dataIda != null &&
+                                                    dataIda != _dataIda) {
+                                                  setState(() {
+                                                    debugPrint(
+                                                        'chegamos aqui');
+                                                    _dataIda ==
+                                                        dataIda
+                                                            as TextEditingController;
+                                                  });
+                                                }
+                                              },
                                             ),
                                           ),
                                         ),
                                       ),
-                                    ],
-                                  ),
-                                ],
-                              ),
+                                    ),
+                                  ],
+                                ),
+                              ],
                             ),
-                            Visibility(
-                              visible: _veiculo,
-                              child: Column(
-                                children: [
-                                  const Padding(
-                                    padding: EdgeInsets.fromLTRB(8, 0, 8, 0),
-                                    child: Align(
-                                      child: Text(
-                                        'Veiculo:',
-                                        textAlign: TextAlign.left,
-                                        style: TextStyle(
-                                          color: Colors.indigo,
-                                          fontSize: 24,
-                                        ),
-                                      ),
-                                      alignment: Alignment.centerLeft,
-                                    ),
-                                  ),
-                                  const Padding(
-                                    padding: EdgeInsets.fromLTRB(8, 16, 8, 16),
-                                    child: TextField(
-                                      obscureText: true,
-                                      keyboardType: TextInputType.number,
-                                      decoration: InputDecoration(
-                                        border: OutlineInputBorder(),
-                                        labelText: 'Local de Retirada',
-                                      ),
-                                    ),
-                                  ),
-                                  const Padding(
-                                    padding: EdgeInsets.fromLTRB(8, 16, 8, 16),
-                                    child: TextField(
-                                      obscureText: true,
-                                      keyboardType: TextInputType.number,
-                                      decoration: InputDecoration(
-                                        border: OutlineInputBorder(),
-                                        labelText: 'Local de Devolução',
-                                      ),
-                                    ),
-                                  ),
-                                  Row(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceBetween,
-                                    children: [
-                                      Padding(
-                                        padding: const EdgeInsets.fromLTRB(
-                                            8, 16, 8, 16),
-                                        child: Container(
-                                          width: 150,
-                                          child: TextField(
-                                            obscureText: true,
-                                            keyboardType:
-                                                TextInputType.datetime,
-                                            decoration: InputDecoration(
-                                              border: OutlineInputBorder(),
-                                              labelText: 'Retirada',
-                                              suffixIcon: IconButton(
-                                                icon: Icon(Icons.date_range),
-                                                onPressed: () {
-                                                  Future<DateTime?> dataIda =
-                                                      showDatePicker(
-                                                          context: context,
-                                                          initialDate:
-                                                              DateTime.now(),
-                                                          firstDate:
-                                                              DateTime(2022),
-                                                          lastDate:
-                                                              DateTime(2099));
-                                                },
-                                              ),
-                                            ),
-                                          ),
-                                        ),
-                                      ),
-                                      Padding(
-                                        padding: const EdgeInsets.fromLTRB(
-                                            8, 16, 8, 16),
-                                        child: Container(
-                                          width: 150,
-                                          child: TextField(
-                                            obscureText: true,
-                                            keyboardType:
-                                                TextInputType.datetime,
-                                            decoration: InputDecoration(
-                                              border: OutlineInputBorder(),
-                                              labelText: 'Devolução',
-                                              suffixIcon: IconButton(
-                                                icon: Icon(Icons.date_range),
-                                                onPressed: () async {
-                                                  Future<DateTime?> dataIda =
-                                                      showDatePicker(
-                                                          context: context,
-                                                          initialDate:
-                                                              DateTime.now(),
-                                                          firstDate:
-                                                              DateTime(2022),
-                                                          lastDate:
-                                                              DateTime(2099));
-                                                  if (dataIda != null &&
-                                                      dataIda != _dataIda) {
-                                                    setState(() {
-                                                      debugPrint(
-                                                          'chegamos aqui');
-                                                      _dataIda ==
-                                                          dataIda
-                                                              as TextEditingController;
-                                                    });
-                                                  }
-                                                },
-                                              ),
-                                            ),
-                                          ),
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                ],
-                              ),
-                            )
-                          ],
-                        ),
+                          )
+                        ],
                       ),
                     ),
                   ),
@@ -635,12 +634,33 @@ class _CorpoState extends State<Corpo> {
                       veiculo: false,
                     ),
                     UltimosPedidos(
+                      pedido: 356849,
+                      qtdPessoas: 3,
+                      dataViagem: '28/08/2022',
+                      aereo: true,
+                      hotel: false,
+                      veiculo: true,
+                    ),UltimosPedidos(
+                      pedido: 356848,
+                      qtdPessoas: 1,
+                      dataViagem: '08/08/2022',
+                      aereo: false,
+                      hotel: true,
+                      veiculo: true,
+                    ),UltimosPedidos(
+                      pedido: 3568470,
+                      qtdPessoas: 6,
+                      dataViagem: '30/08/2022',
+                      aereo: true,
+                      hotel: true,
+                      veiculo: false,
+                    ),UltimosPedidos(
                       pedido: 356850,
                       qtdPessoas: 1,
                       dataViagem: '20/08/2022',
                       aereo: true,
-                      hotel: false,
-                      veiculo: false,
+                      hotel: true,
+                      veiculo: true,
                     ),
                   ],
                 ),
@@ -701,7 +721,7 @@ class UltimosPedidos extends StatelessWidget {
                     Text(
                       dataViagem,
                       style: TextStyle(
-                        fontSize: 18,
+                        fontSize: 16,
                       ),
                     ),
                   ],
@@ -711,7 +731,7 @@ class UltimosPedidos extends StatelessWidget {
                 padding: const EdgeInsets.all(8.0),
                 child: Text(
                   '${pedido}',
-                  style: TextStyle(fontSize: 18),
+                  style: TextStyle(fontSize: 16),
                 ),
               )
             ],
@@ -727,12 +747,12 @@ class UltimosPedidos extends StatelessWidget {
                       padding: const EdgeInsets.fromLTRB(0, 0, 8, 0),
                       child: Text(
                         '${qtdPessoas}',
-                        style: TextStyle(fontSize: 18),
+                        style: TextStyle(fontSize: 16),
                       ),
                     ),
                     Icon(
                       Icons.people,
-                      size: 18,
+                      size: 16,
                     ),
                   ],
                 ),
@@ -756,6 +776,7 @@ class UltimosPedidos extends StatelessWidget {
               )
             ],
           ),
+
         ],
       ),
     );
