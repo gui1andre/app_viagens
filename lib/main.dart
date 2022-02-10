@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 
@@ -7,7 +6,7 @@ void main() {
 }
 
 class Viagens extends StatelessWidget {
-  Viagens({Key? key}) : super(key: key);
+  const Viagens({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -45,7 +44,10 @@ class Dashboard extends StatelessWidget {
             bottom: Radius.circular(8),
           ),
         ),
-        leading: const Icon(Icons.account_circle_sharp),
+        leading: const Icon(
+          Icons.account_circle_sharp,
+          size: 32,
+        ),
       ),
       body: Corpo(),
     );
@@ -100,7 +102,7 @@ class _CorpoState extends State<Corpo> {
                             children: [
                               Padding(
                                 padding:
-                                    const EdgeInsets.fromLTRB(24, 8, 24, 16),
+                                    const EdgeInsets.fromLTRB(24, 16, 24, 16),
                                 child: Column(
                                   children: [
                                     Container(
@@ -307,8 +309,7 @@ class _CorpoState extends State<Corpo> {
                                         width: 150,
                                         child: TextField(
                                           obscureText: true,
-                                          keyboardType:
-                                              TextInputType.datetime,
+                                          keyboardType: TextInputType.datetime,
                                           decoration: InputDecoration(
                                             border: OutlineInputBorder(),
                                             labelText: 'Data Ida',
@@ -337,8 +338,7 @@ class _CorpoState extends State<Corpo> {
                                         width: 150,
                                         child: TextField(
                                           obscureText: true,
-                                          keyboardType:
-                                              TextInputType.datetime,
+                                          keyboardType: TextInputType.datetime,
                                           decoration: InputDecoration(
                                             border: OutlineInputBorder(),
                                             labelText: 'Data Volta',
@@ -357,8 +357,7 @@ class _CorpoState extends State<Corpo> {
                                                 if (dataIda != null &&
                                                     dataIda != _dataIda) {
                                                   setState(() {
-                                                    debugPrint(
-                                                        'chegamos aqui');
+                                                    debugPrint('chegamos aqui');
                                                     _dataIda ==
                                                         dataIda
                                                             as TextEditingController;
@@ -415,8 +414,7 @@ class _CorpoState extends State<Corpo> {
                                         width: 150,
                                         child: TextField(
                                           obscureText: true,
-                                          keyboardType:
-                                              TextInputType.datetime,
+                                          keyboardType: TextInputType.datetime,
                                           decoration: InputDecoration(
                                             border: OutlineInputBorder(),
                                             labelText: 'Checkin',
@@ -445,8 +443,7 @@ class _CorpoState extends State<Corpo> {
                                         width: 150,
                                         child: TextField(
                                           obscureText: true,
-                                          keyboardType:
-                                              TextInputType.datetime,
+                                          keyboardType: TextInputType.datetime,
                                           decoration: InputDecoration(
                                             border: OutlineInputBorder(),
                                             labelText: 'Checkin',
@@ -465,8 +462,7 @@ class _CorpoState extends State<Corpo> {
                                                 if (dataIda != null &&
                                                     dataIda != _dataIda) {
                                                   setState(() {
-                                                    debugPrint(
-                                                        'chegamos aqui');
+                                                    debugPrint('chegamos aqui');
                                                     _dataIda ==
                                                         dataIda
                                                             as TextEditingController;
@@ -534,8 +530,7 @@ class _CorpoState extends State<Corpo> {
                                         width: 150,
                                         child: TextField(
                                           obscureText: true,
-                                          keyboardType:
-                                              TextInputType.datetime,
+                                          keyboardType: TextInputType.datetime,
                                           decoration: InputDecoration(
                                             border: OutlineInputBorder(),
                                             labelText: 'Retirada',
@@ -564,8 +559,7 @@ class _CorpoState extends State<Corpo> {
                                         width: 150,
                                         child: TextField(
                                           obscureText: true,
-                                          keyboardType:
-                                              TextInputType.datetime,
+                                          keyboardType: TextInputType.datetime,
                                           decoration: InputDecoration(
                                             border: OutlineInputBorder(),
                                             labelText: 'Devolução',
@@ -584,8 +578,7 @@ class _CorpoState extends State<Corpo> {
                                                 if (dataIda != null &&
                                                     dataIda != _dataIda) {
                                                   setState(() {
-                                                    debugPrint(
-                                                        'chegamos aqui');
+                                                    debugPrint('chegamos aqui');
                                                     _dataIda ==
                                                         dataIda
                                                             as TextEditingController;
@@ -610,64 +603,207 @@ class _CorpoState extends State<Corpo> {
               ],
             ),
           ),
-          Padding(
-            padding: const EdgeInsets.fromLTRB(8, 16, 8, 16),
-            child: Center(
-              child: SingleChildScrollView(
-                scrollDirection: Axis.horizontal,
-                child: Row(
-                  children: [
-                    UltimosPedidos(
-                      pedido: 356852,
-                      qtdPessoas: 4,
-                      dataViagem: '20/08/2022',
-                      aereo: true,
-                      hotel: true,
-                      veiculo: true,
+          Column(
+            children: [
+              Padding(
+                padding: EdgeInsets.fromLTRB(8, 16, 0, 16),
+                child: Align(
+                  child: Text(
+                    'Ultimos Pedidos:',
+                    textAlign: TextAlign.left,
+                    style: TextStyle(
+                      color: Colors.indigo,
+                      fontSize: 24,
+                      fontWeight: FontWeight.bold,
                     ),
-                    UltimosPedidos(
-                      pedido: 356851,
-                      qtdPessoas: 2,
-                      dataViagem: '15/08/2022',
-                      aereo: true,
-                      hotel: true,
-                      veiculo: false,
-                    ),
-                    UltimosPedidos(
-                      pedido: 356849,
-                      qtdPessoas: 3,
-                      dataViagem: '28/08/2022',
-                      aereo: true,
-                      hotel: false,
-                      veiculo: true,
-                    ),UltimosPedidos(
-                      pedido: 356848,
-                      qtdPessoas: 1,
-                      dataViagem: '08/08/2022',
-                      aereo: false,
-                      hotel: true,
-                      veiculo: true,
-                    ),UltimosPedidos(
-                      pedido: 3568470,
-                      qtdPessoas: 6,
-                      dataViagem: '30/08/2022',
-                      aereo: true,
-                      hotel: true,
-                      veiculo: false,
-                    ),UltimosPedidos(
-                      pedido: 356850,
-                      qtdPessoas: 1,
-                      dataViagem: '20/08/2022',
-                      aereo: true,
-                      hotel: true,
-                      veiculo: true,
-                    ),
-                  ],
+                  ),
+                  alignment: Alignment.centerLeft,
                 ),
               ),
-            ),
+              Padding(
+                padding: const EdgeInsets.fromLTRB(0, 2, 0, 16),
+                child: Center(
+                  child: SingleChildScrollView(
+                    scrollDirection: Axis.horizontal,
+                    child: Row(
+                      children: [
+                        UltimosPedidos(
+                          pedido: 356852,
+                          qtdPessoas: 4,
+                          dataViagem: '20/08/2022',
+                          aereo: true,
+                          hotel: true,
+                          veiculo: true,
+                        ),
+                        UltimosPedidos(
+                          pedido: 356851,
+                          qtdPessoas: 2,
+                          dataViagem: '15/08/2022',
+                          aereo: true,
+                          hotel: true,
+                          veiculo: false,
+                        ),
+                        UltimosPedidos(
+                          pedido: 356849,
+                          qtdPessoas: 3,
+                          dataViagem: '28/08/2022',
+                          aereo: true,
+                          hotel: false,
+                          veiculo: true,
+                        ),
+                        UltimosPedidos(
+                          pedido: 356848,
+                          qtdPessoas: 1,
+                          dataViagem: '08/08/2022',
+                          aereo: false,
+                          hotel: true,
+                          veiculo: true,
+                        ),
+                        UltimosPedidos(
+                          pedido: 3568470,
+                          qtdPessoas: 6,
+                          dataViagem: '30/08/2022',
+                          aereo: true,
+                          hotel: true,
+                          veiculo: false,
+                        ),
+                        UltimosPedidos(
+                          pedido: 356850,
+                          qtdPessoas: 1,
+                          dataViagem: '20/08/2022',
+                          aereo: true,
+                          hotel: true,
+                          veiculo: true,
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              ),
+            ],
+          ),
+          Column(
+            children: [
+              Padding(
+                padding: EdgeInsets.fromLTRB(8, 16, 0, 16),
+                child: Align(
+                  child: Text(
+                    'Meus Pedidos:',
+                    textAlign: TextAlign.left,
+                    style: TextStyle(
+                      color: Colors.indigo,
+                      fontSize: 24,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  alignment: Alignment.centerLeft,
+                ),
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  StatusPedidos(
+                    nomeStatus: 'Finalizados',
+                    numPedidos: 5,
+                    iconStatus: Icons.check_circle_outline,
+                  ),
+                  StatusPedidos(
+                    nomeStatus: 'A Emitir',
+                    numPedidos: 2,
+                    iconStatus: Icons.lock_clock,
+                  ),
+                ],
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  StatusPedidos(
+                    nomeStatus: 'Cancelados',
+                    numPedidos: 10,
+                    iconStatus: Icons.cancel,
+                  ),
+                  StatusPedidos(
+                    nomeStatus: 'Remarcação',
+                    numPedidos: 3,
+                    iconStatus: Icons.calendar_today_outlined,
+                  ),
+                ],
+              )
+            ],
           )
         ],
+      ),
+    );
+  }
+}
+
+class StatusPedidos extends StatelessWidget {
+  const StatusPedidos(
+      {required this.numPedidos,
+      required this.nomeStatus,
+      required this.iconStatus});
+
+  final int numPedidos;
+  final String nomeStatus;
+
+  final IconData iconStatus;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      decoration: BoxDecoration(
+          color: Colors.white,
+          border: Border.all(color: Colors.black),
+          borderRadius: BorderRadius.circular(16),
+          boxShadow: [
+            BoxShadow(
+              color: Colors.grey.withOpacity(0.5),
+              spreadRadius: 3,
+              blurRadius: 4,
+              offset: const Offset(0, 3), // changes position of shadow
+            ),
+          ]),
+      margin: EdgeInsets.all(8),
+      height: 100,
+      width: 180,
+      child: Padding(
+        padding: const EdgeInsets.all(15.0),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Text(
+              '${nomeStatus}',
+              style: TextStyle(
+                fontSize: 16,
+                color: Colors.black,
+                // fontWeight: FontWeight.bold,
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.only(top: 16),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.only(right: 8),
+                    child: Icon(
+                      iconStatus,
+                      size: 32,
+                      color: Colors.indigoAccent,
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(left: 8),
+                    child: Text(
+                      '${numPedidos}',
+                      style: TextStyle(fontSize: 18, color: Colors.indigoAccent),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
@@ -715,7 +851,7 @@ class UltimosPedidos extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Padding(
-                padding: const EdgeInsets.all(8.0),
+                padding: const EdgeInsets.fromLTRB(16, 16, 0, 0),
                 child: Row(
                   children: [
                     Text(
@@ -728,7 +864,7 @@ class UltimosPedidos extends StatelessWidget {
                 ),
               ),
               Padding(
-                padding: const EdgeInsets.all(8.0),
+                padding: const EdgeInsets.fromLTRB(0, 16, 16, 0),
                 child: Text(
                   '${pedido}',
                   style: TextStyle(fontSize: 16),
@@ -740,7 +876,7 @@ class UltimosPedidos extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Padding(
-                padding: const EdgeInsets.all(8.0),
+                padding: const EdgeInsets.all(16.0),
                 child: Row(
                   children: [
                     Padding(
@@ -758,25 +894,26 @@ class UltimosPedidos extends StatelessWidget {
                 ),
               ),
               Padding(
-                padding: const EdgeInsets.all(8.0),
+                padding: const EdgeInsets.all(16.0),
                 child: Row(
                   children: [
                     Icon(
                       Icons.airplanemode_active,
-                      color: aereo ? Colors.blueAccent : Colors.grey,
-                    ),Icon(
+                      color: aereo ? Colors.indigoAccent : Colors.grey,
+                    ),
+                    Icon(
                       Icons.apartment,
-                      color: hotel ? Colors.blueAccent : Colors.grey,
-                    ),Icon(
+                      color: hotel ? Colors.indigoAccent : Colors.grey,
+                    ),
+                    Icon(
                       Icons.directions_car,
-                      color: veiculo ? Colors.blueAccent : Colors.grey,
+                      color: veiculo ? Colors.indigoAccent : Colors.grey,
                     ),
                   ],
                 ),
               )
             ],
           ),
-
         ],
       ),
     );
