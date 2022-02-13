@@ -12,9 +12,9 @@ class Viagens extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       theme: ThemeData(
-          primaryColor: Colors.indigo,
+          primaryColor: Color.fromARGB(999, 33, 150, 243),
           colorScheme: ColorScheme.fromSwatch()
-              .copyWith(secondary: Colors.blueAccent[700]),
+              .copyWith(secondary: Colors.indigo),
           buttonTheme: ButtonThemeData(
             buttonColor: Colors.blueAccent[700],
             textTheme: ButtonTextTheme.primary,
@@ -36,18 +36,29 @@ class Dashboard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
-    return Scaffold(
-      appBar: AppBar(
-          centerTitle: true,
-          title: const Text('Dashboard', style: TextStyle()),
-          backgroundColor: Theme.of(context).primaryColor,
-          shape: const RoundedRectangleBorder(
-            borderRadius: BorderRadius.vertical(
-              bottom: Radius.circular(8),
-            ),
+    return Container(
+      decoration: BoxDecoration(
+        gradient: LinearGradient(
+          begin: Alignment.topRight,
+          end: Alignment.bottomLeft,
+          colors: [
+            Color.fromARGB(999, 59, 149, 254),
+            Colors.indigo,
+          ],
+        ),
+      ),
+      child: Scaffold(
+        backgroundColor: Colors.transparent,
+        appBar: PreferredSize(
+          preferredSize: Size.fromHeight(1),
+          child: AppBar(
+            backgroundColor: Theme.of(context).primaryColor,
+            elevation: 0,
           ),
-          leading: IconAppBar()),
-      body: Corpo(),
+        ),
+        body: Corpo(),
+        bottomNavigationBar: BarraDeNavegacao(),
+      ),
     );
   }
 }
@@ -69,6 +80,9 @@ class _CorpoState extends State<Corpo> {
     return SingleChildScrollView(
       child: Column(
         children: [
+          TituloWidget(
+            tituloWidget: 'Pesquisa:',
+          ),
           Column(
             mainAxisSize: MainAxisSize.max,
             children: [
@@ -83,9 +97,9 @@ class _CorpoState extends State<Corpo> {
                         borderRadius: BorderRadius.circular(16),
                         boxShadow: [
                           BoxShadow(
-                            color: Colors.grey.withOpacity(0.5),
+                            color: Colors.grey.withOpacity(0.2),
                             spreadRadius: 5,
-                            blurRadius: 7,
+                            blurRadius: 16,
                             offset: const Offset(
                                 0, 3), // changes position of shadow
                           ),
@@ -125,7 +139,7 @@ class _CorpoState extends State<Corpo> {
                                     height: 48,
                                     decoration: BoxDecoration(
                                       color:
-                                          _aereo ? Colors.indigo : Colors.white,
+                                          _aereo ? Theme.of(context).primaryColor : Colors.white,
                                       shape: BoxShape.circle,
                                     ),
                                   ),
@@ -136,7 +150,7 @@ class _CorpoState extends State<Corpo> {
                                           ? FontWeight.bold
                                           : FontWeight.normal,
                                       color:
-                                          _aereo ? Colors.indigo : Colors.black,
+                                          _aereo ? Theme.of(context).primaryColor : Colors.black,
                                       fontSize: 16,
                                     ),
                                   ),
@@ -173,7 +187,7 @@ class _CorpoState extends State<Corpo> {
                                     height: 48,
                                     decoration: BoxDecoration(
                                       color:
-                                          _hotel ? Colors.indigo : Colors.white,
+                                          _hotel ? Theme.of(context).primaryColor : Colors.white,
                                       shape: BoxShape.circle,
                                     ),
                                   ),
@@ -184,7 +198,7 @@ class _CorpoState extends State<Corpo> {
                                           ? FontWeight.bold
                                           : FontWeight.normal,
                                       color:
-                                          _hotel ? Colors.indigo : Colors.black,
+                                          _hotel ? Theme.of(context).primaryColor : Colors.black,
                                       fontSize: 16,
                                     ),
                                   ),
@@ -222,7 +236,7 @@ class _CorpoState extends State<Corpo> {
                                     height: 48,
                                     decoration: BoxDecoration(
                                       color: _veiculo
-                                          ? Colors.indigo
+                                          ? Theme.of(context).primaryColor
                                           : Colors.white,
                                       shape: BoxShape.circle,
                                     ),
@@ -234,7 +248,7 @@ class _CorpoState extends State<Corpo> {
                                           ? FontWeight.bold
                                           : FontWeight.normal,
                                       color: _veiculo
-                                          ? Colors.indigo
+                                          ? Theme.of(context).primaryColor
                                           : Colors.black,
                                       fontSize: 16,
                                     ),
@@ -250,14 +264,14 @@ class _CorpoState extends State<Corpo> {
                           visible: _aereo,
                           child: Column(
                             children: [
-                              const Padding(
+                              Padding(
                                 padding: EdgeInsets.fromLTRB(8, 0, 8, 0),
                                 child: Align(
                                   child: Text(
                                     'Aéreo:',
                                     textAlign: TextAlign.left,
                                     style: TextStyle(
-                                      color: Colors.indigo,
+                                      color: Theme.of(context).primaryColor,
                                       fontSize: 24,
                                     ),
                                   ),
@@ -291,14 +305,14 @@ class _CorpoState extends State<Corpo> {
                           visible: _hotel,
                           child: Column(
                             children: [
-                              const Padding(
+                              Padding(
                                 padding: EdgeInsets.fromLTRB(8, 0, 8, 0),
                                 child: Align(
                                   child: Text(
                                     'Hotel:',
                                     textAlign: TextAlign.left,
                                     style: TextStyle(
-                                      color: Colors.indigo,
+                                      color: Theme.of(context).primaryColor,
                                       fontSize: 24,
                                     ),
                                   ),
@@ -328,14 +342,14 @@ class _CorpoState extends State<Corpo> {
                           visible: _veiculo,
                           child: Column(
                             children: [
-                              const Padding(
+                               Padding(
                                 padding: EdgeInsets.fromLTRB(8, 0, 8, 0),
                                 child: Align(
                                   child: Text(
                                     'Veiculo:',
                                     textAlign: TextAlign.left,
                                     style: TextStyle(
-                                      color: Colors.indigo,
+                                      color: Theme.of(context).primaryColor,
                                       fontSize: 24,
                                     ),
                                   ),
@@ -374,20 +388,8 @@ class _CorpoState extends State<Corpo> {
           ),
           Column(
             children: [
-              const Padding(
-                padding: EdgeInsets.fromLTRB(8, 16, 0, 16),
-                child: Align(
-                  child: Text(
-                    'Ultimos Pedidos:',
-                    textAlign: TextAlign.left,
-                    style: TextStyle(
-                      color: Colors.indigo,
-                      fontSize: 24,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                  alignment: Alignment.centerLeft,
-                ),
+              TituloWidget(
+                tituloWidget: 'Ultimos Pedidos:',
               ),
               Padding(
                 padding: const EdgeInsets.fromLTRB(0, 2, 0, 16),
@@ -453,21 +455,7 @@ class _CorpoState extends State<Corpo> {
           ),
           Column(
             children: [
-              const Padding(
-                padding: EdgeInsets.fromLTRB(8, 16, 0, 16),
-                child: Align(
-                  child: Text(
-                    'Meus Pedidos:',
-                    textAlign: TextAlign.left,
-                    style: TextStyle(
-                      color: Colors.indigo,
-                      fontSize: 24,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                  alignment: Alignment.centerLeft,
-                ),
-              ),
+              TituloWidget(tituloWidget: 'Meus Pedidos:'),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: const [
@@ -526,17 +514,17 @@ class StatusPedidos extends StatelessWidget {
           borderRadius: BorderRadius.circular(16),
           boxShadow: [
             BoxShadow(
-              color: Colors.grey.withOpacity(0.5),
+              color: Colors.grey.withOpacity(0.2),
               spreadRadius: 3,
               blurRadius: 4,
               offset: const Offset(0, 3), // changes position of shadow
             ),
           ]),
       margin: const EdgeInsets.all(8),
-      height: 100,
+      height: 90,
       width: 180,
       child: Padding(
-        padding: const EdgeInsets.all(15.0),
+        padding: const EdgeInsets.all(10.0),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
@@ -558,15 +546,15 @@ class StatusPedidos extends StatelessWidget {
                     child: Icon(
                       iconStatus,
                       size: 32,
-                      color: Colors.indigoAccent,
+                      color: Theme.of(context).primaryColor,
                     ),
                   ),
                   Padding(
                     padding: const EdgeInsets.only(left: 8),
                     child: Text(
                       '$numPedidos',
-                      style: const TextStyle(
-                          fontSize: 18, color: Colors.indigoAccent),
+                      style: TextStyle(
+                          fontSize: 18, color: Theme.of(context).primaryColor),
                     ),
                   ),
                 ],
@@ -605,7 +593,7 @@ class UltimosPedidos extends StatelessWidget {
           borderRadius: BorderRadius.circular(16),
           boxShadow: [
             BoxShadow(
-              color: Colors.grey.withOpacity(0.5),
+              color: Colors.grey.withOpacity(0.2),
               spreadRadius: 3,
               blurRadius: 4,
               offset: const Offset(0, 3), // changes position of shadow
@@ -669,15 +657,15 @@ class UltimosPedidos extends StatelessWidget {
                   children: [
                     Icon(
                       Icons.airplanemode_active,
-                      color: aereo ? Colors.indigoAccent : Colors.grey,
+                      color: aereo ? Theme.of(context).primaryColor : Colors.grey,
                     ),
                     Icon(
                       Icons.apartment,
-                      color: hotel ? Colors.indigoAccent : Colors.grey,
+                      color: hotel ? Theme.of(context).primaryColor : Colors.grey,
                     ),
                     Icon(
                       Icons.directions_car,
-                      color: veiculo ? Colors.indigoAccent : Colors.grey,
+                      color: veiculo ? Theme.of(context).primaryColor : Colors.grey,
                     ),
                   ],
                 ),
@@ -704,7 +692,7 @@ class CampoTexto extends StatelessWidget {
         obscureText: true,
         keyboardType: tipoKB,
         decoration: InputDecoration(
-          fillColor: Colors.indigo,
+          fillColor: Theme.of(context).primaryColor,
           border: const OutlineInputBorder(),
           labelText: nomeCampo,
         ),
@@ -763,6 +751,71 @@ class IconAppBar extends StatelessWidget {
         alterarPerfil = !alterarPerfil;
         debugPrint('${alterarPerfil}');
       },
+    );
+  }
+}
+
+class TituloWidget extends StatelessWidget {
+  const TituloWidget({Key? key, required this.tituloWidget}) : super(key: key);
+  final String tituloWidget;
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: EdgeInsets.fromLTRB(8, 16, 0, 16),
+      child: Align(
+        child: Text(
+          tituloWidget,
+          textAlign: TextAlign.left,
+          style: TextStyle(
+            color: Colors.white,
+            fontSize: 24,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+        alignment: Alignment.centerLeft,
+      ),
+    );
+  }
+}
+
+class BarraDeNavegacao extends StatefulWidget {
+  const BarraDeNavegacao({Key? key}) : super(key: key);
+
+  @override
+  _BarraDeNavegacaoState createState() => _BarraDeNavegacaoState();
+}
+
+class _BarraDeNavegacaoState extends State<BarraDeNavegacao> {
+  int _selectedIndex = 0;
+
+  void _onItemTapped(int index) {
+    setState(() {
+      _selectedIndex = index;
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return BottomNavigationBar(
+      items: const <BottomNavigationBarItem>[
+        BottomNavigationBarItem(
+          icon: Icon(Icons.home),
+          label: 'Home',
+        ),
+        BottomNavigationBarItem(
+          icon: Icon(Icons.approval),
+          label: 'Aprovação',
+        ),
+        BottomNavigationBarItem(
+          icon: Icon(Icons.person),
+          label: 'Perfil',
+        ),
+      ],
+      currentIndex: _selectedIndex,
+      selectedItemColor: Theme.of(context).primaryColor,
+      onTap: _onItemTapped,
+
     );
   }
 }
