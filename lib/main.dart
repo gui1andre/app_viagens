@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:bordered_text/bordered_text.dart';
 
 void main() {
   runApp(const Viagens());
@@ -12,14 +13,15 @@ class Viagens extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       theme: ThemeData(
-          primaryColor: Color.fromARGB(999, 33, 150, 243),
-          colorScheme: ColorScheme.fromSwatch()
-              .copyWith(secondary: Colors.indigo),
+          primaryColor: const Color.fromARGB(999, 33, 150, 243),
+          colorScheme:
+              ColorScheme.fromSwatch().copyWith(secondary: Colors.indigo),
           buttonTheme: ButtonThemeData(
             buttonColor: Colors.blueAccent[700],
             textTheme: ButtonTextTheme.primary,
           )),
-      home: Dashboard(),
+      home: const Dashboard(),
+      debugShowCheckedModeBanner: false,
       localizationsDelegates: const [
         GlobalMaterialLocalizations.delegate,
       ],
@@ -37,7 +39,7 @@ class Dashboard extends StatelessWidget {
   Widget build(BuildContext context) {
     // TODO: implement build
     return Container(
-      decoration: BoxDecoration(
+      decoration: const BoxDecoration(
         gradient: LinearGradient(
           begin: Alignment.topRight,
           end: Alignment.bottomLeft,
@@ -50,14 +52,14 @@ class Dashboard extends StatelessWidget {
       child: Scaffold(
         backgroundColor: Colors.transparent,
         appBar: PreferredSize(
-          preferredSize: Size.fromHeight(1),
+          preferredSize: const Size.fromHeight(1),
           child: AppBar(
             backgroundColor: Theme.of(context).primaryColor,
             elevation: 0,
           ),
         ),
-        body: Corpo(),
-        bottomNavigationBar: BarraDeNavegacao(),
+        body: const Corpo(),
+        bottomNavigationBar: const BarraDeNavegacao(),
       ),
     );
   }
@@ -80,7 +82,7 @@ class _CorpoState extends State<Corpo> {
     return SingleChildScrollView(
       child: Column(
         children: [
-          TituloWidget(
+          const TituloWidget(
             tituloWidget: 'Pesquisa:',
           ),
           Column(
@@ -138,8 +140,9 @@ class _CorpoState extends State<Corpo> {
                                     width: 48,
                                     height: 48,
                                     decoration: BoxDecoration(
-                                      color:
-                                          _aereo ? Theme.of(context).primaryColor : Colors.white,
+                                      color: _aereo
+                                          ? Theme.of(context).primaryColor
+                                          : Colors.white,
                                       shape: BoxShape.circle,
                                     ),
                                   ),
@@ -149,8 +152,9 @@ class _CorpoState extends State<Corpo> {
                                       fontWeight: _aereo
                                           ? FontWeight.bold
                                           : FontWeight.normal,
-                                      color:
-                                          _aereo ? Theme.of(context).primaryColor : Colors.black,
+                                      color: _aereo
+                                          ? Theme.of(context).primaryColor
+                                          : Colors.black,
                                       fontSize: 16,
                                     ),
                                   ),
@@ -186,8 +190,9 @@ class _CorpoState extends State<Corpo> {
                                     width: 48,
                                     height: 48,
                                     decoration: BoxDecoration(
-                                      color:
-                                          _hotel ? Theme.of(context).primaryColor : Colors.white,
+                                      color: _hotel
+                                          ? Theme.of(context).primaryColor
+                                          : Colors.white,
                                       shape: BoxShape.circle,
                                     ),
                                   ),
@@ -197,8 +202,9 @@ class _CorpoState extends State<Corpo> {
                                       fontWeight: _hotel
                                           ? FontWeight.bold
                                           : FontWeight.normal,
-                                      color:
-                                          _hotel ? Theme.of(context).primaryColor : Colors.black,
+                                      color: _hotel
+                                          ? Theme.of(context).primaryColor
+                                          : Colors.black,
                                       fontSize: 16,
                                     ),
                                   ),
@@ -265,7 +271,7 @@ class _CorpoState extends State<Corpo> {
                           child: Column(
                             children: [
                               Padding(
-                                padding: EdgeInsets.fromLTRB(8, 0, 8, 0),
+                                padding: const EdgeInsets.fromLTRB(8, 0, 8, 0),
                                 child: Align(
                                   child: Text(
                                     'Aéreo:',
@@ -306,7 +312,7 @@ class _CorpoState extends State<Corpo> {
                           child: Column(
                             children: [
                               Padding(
-                                padding: EdgeInsets.fromLTRB(8, 0, 8, 0),
+                                padding: const EdgeInsets.fromLTRB(8, 0, 8, 0),
                                 child: Align(
                                   child: Text(
                                     'Hotel:',
@@ -342,8 +348,8 @@ class _CorpoState extends State<Corpo> {
                           visible: _veiculo,
                           child: Column(
                             children: [
-                               Padding(
-                                padding: EdgeInsets.fromLTRB(8, 0, 8, 0),
+                              Padding(
+                                padding: const EdgeInsets.fromLTRB(8, 0, 8, 0),
                                 child: Align(
                                   child: Text(
                                     'Veiculo:',
@@ -388,7 +394,7 @@ class _CorpoState extends State<Corpo> {
           ),
           Column(
             children: [
-              TituloWidget(
+              const TituloWidget(
                 tituloWidget: 'Ultimos Pedidos:',
               ),
               Padding(
@@ -399,36 +405,14 @@ class _CorpoState extends State<Corpo> {
                     child: Row(
                       children: const [
                         UltimosPedidos(
-                          pedido: 356852,
-                          qtdPessoas: 4,
-                          dataViagem: '20/08/2022',
-                          aereo: true,
-                          hotel: true,
-                          veiculo: true,
-                        ),
-                        UltimosPedidos(
-                          pedido: 356851,
-                          qtdPessoas: 2,
-                          dataViagem: '15/08/2022',
-                          aereo: true,
-                          hotel: true,
-                          veiculo: false,
-                        ),
-                        UltimosPedidos(
-                          pedido: 356849,
-                          qtdPessoas: 3,
-                          dataViagem: '28/08/2022',
-                          aereo: true,
-                          hotel: false,
-                          veiculo: true,
-                        ),
-                        UltimosPedidos(
                           pedido: 356848,
                           qtdPessoas: 1,
                           dataViagem: '08/08/2022',
                           aereo: false,
                           hotel: true,
                           veiculo: true,
+                          idImagem: 2,
+                          nomeCidade: 'Porto Seguro, BA',
                         ),
                         UltimosPedidos(
                           pedido: 3568470,
@@ -437,6 +421,8 @@ class _CorpoState extends State<Corpo> {
                           aereo: true,
                           hotel: true,
                           veiculo: false,
+                          idImagem: 1,
+                          nomeCidade: 'Curitiba, PA',
                         ),
                         UltimosPedidos(
                           pedido: 356850,
@@ -445,6 +431,8 @@ class _CorpoState extends State<Corpo> {
                           aereo: true,
                           hotel: true,
                           veiculo: true,
+                          idImagem: 3,
+                          nomeCidade: 'Natal, RN',
                         ),
                       ],
                     ),
@@ -455,7 +443,7 @@ class _CorpoState extends State<Corpo> {
           ),
           Column(
             children: [
-              TituloWidget(tituloWidget: 'Meus Pedidos:'),
+              const TituloWidget(tituloWidget: 'Meus Pedidos:'),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: const [
@@ -524,7 +512,7 @@ class StatusPedidos extends StatelessWidget {
       height: 90,
       width: 180,
       child: Padding(
-        padding: const EdgeInsets.all(10.0),
+        padding: const EdgeInsets.all(8.0),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
@@ -575,11 +563,15 @@ class UltimosPedidos extends StatelessWidget {
     required this.aereo,
     required this.hotel,
     required this.veiculo,
+    required this.idImagem,
+    required this.nomeCidade,
   });
 
+  final String nomeCidade;
   final String dataViagem;
   final int pedido;
   final int qtdPessoas;
+  final int idImagem;
   final bool aereo;
   final bool hotel;
   final bool veiculo;
@@ -588,93 +580,140 @@ class UltimosPedidos extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-          color: Colors.white,
-          border: Border.all(color: Colors.black),
-          borderRadius: BorderRadius.circular(16),
-          boxShadow: [
-            BoxShadow(
-              color: Colors.grey.withOpacity(0.2),
-              spreadRadius: 3,
-              blurRadius: 4,
-              offset: const Offset(0, 3), // changes position of shadow
-            ),
-          ]),
+        // color: Colors.white,
+        border: Border.all(color: Colors.black),
+        borderRadius: BorderRadius.circular(16),
+        image: DecorationImage(
+          image: AssetImage(numImagem(idImagem)),
+          fit: BoxFit.cover,
+        ),
+      ),
       margin: const EdgeInsets.all(8),
-      height: 100,
-      width: 200,
+      height: 300,
+      width: 300,
       child: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        mainAxisAlignment: MainAxisAlignment.end,
         children: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Padding(
-                padding: const EdgeInsets.fromLTRB(16, 16, 0, 0),
-                child: Row(
-                  children: [
-                    Text(
-                      dataViagem,
-                      style: const TextStyle(
-                        fontSize: 16,
+          Container(
+            decoration: BoxDecoration(
+                borderRadius: const BorderRadius.only(
+                    bottomLeft: Radius.circular(16),
+                    bottomRight: Radius.circular(16),
+                    topRight: Radius.circular(8),
+                    topLeft: Radius.circular(8)),
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.black.withOpacity(0.3),
+                    spreadRadius: 0,
+                    blurRadius: 0,
+                    // changes position of shadow
+                  ),
+                ]),
+            width: 300,
+            height: 80,
+            child: Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      BorderedText(
+                        child: Text(
+                          nomeCidade,
+                          style: const TextStyle(
+                              fontSize: 20,
+                              color: Colors.white,
+                              fontWeight: FontWeight.bold),
+                        ),
+                        strokeWidth: 1,
+                        strokeColor: Colors.black,
                       ),
-                    ),
-                  ],
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.fromLTRB(0, 16, 16, 0),
-                child: Text(
-                  '$pedido',
-                  style: const TextStyle(fontSize: 16),
-                ),
-              )
-            ],
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Padding(
-                padding: const EdgeInsets.all(16.0),
-                child: Row(
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.fromLTRB(0, 0, 8, 0),
-                      child: Text(
-                        '$qtdPessoas',
-                        style: const TextStyle(fontSize: 16),
+                      Row(
+                        children: [
+                          Padding(
+                            padding: const EdgeInsets.only(right: 8),
+                            child: BorderedText(
+                              child: Text(
+                                '$qtdPessoas',
+                                style: const TextStyle(
+                                  fontSize: 20,
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                              strokeWidth: 1,
+                              strokeColor: Colors.black,
+                            ),
+                          ),
+                          const Icon(
+                            Icons.people,
+                            size: 20,
+                            color: Colors.white,
+                          ),
+                        ],
+                      )
+                    ],
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      BorderedText(
+                        child: Text(
+                          dataViagem,
+                          style: const TextStyle(
+                            fontSize: 20,
+                            color: Colors.white,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                        strokeWidth: 1,
+                        strokeColor: Colors.black,
                       ),
-                    ),
-                    const Icon(
-                      Icons.people,
-                      size: 16,
-                    ),
-                  ],
-                ),
+                      Row(
+                        children: [
+                          Icon(
+                            Icons.airplanemode_active,
+                            color: aereo
+                                ? Colors.white
+                                : Colors.grey.withOpacity(0.2),
+                          ),
+                          Icon(
+                            Icons.apartment,
+                            color: hotel
+                                ? Colors.white
+                                : Colors.grey.withOpacity(0.2),
+                          ),
+                          Icon(
+                            Icons.directions_car,
+                            color: veiculo
+                                ? Colors.white
+                                : Colors.grey.withOpacity(0.2),
+                          ),
+                        ],
+                      )
+                    ],
+                  ),
+                ],
               ),
-              Padding(
-                padding: const EdgeInsets.all(16.0),
-                child: Row(
-                  children: [
-                    Icon(
-                      Icons.airplanemode_active,
-                      color: aereo ? Theme.of(context).primaryColor : Colors.grey,
-                    ),
-                    Icon(
-                      Icons.apartment,
-                      color: hotel ? Theme.of(context).primaryColor : Colors.grey,
-                    ),
-                    Icon(
-                      Icons.directions_car,
-                      color: veiculo ? Theme.of(context).primaryColor : Colors.grey,
-                    ),
-                  ],
-                ),
-              )
-            ],
+            ),
           ),
         ],
       ),
     );
+  }
+}
+
+String numImagem(int idImagem) {
+  if (idImagem == 1) {
+    return 'images/cidades/curitiba.jpg';
+  } else if (idImagem == 2) {
+    return 'images/cidades/natal.jpg';
+  } else if (idImagem == 3) {
+    return 'images/cidades/portoseguro.jpg';
+  } else {
+    return 'images/cidades/generic.jpg';
   }
 }
 
@@ -743,13 +782,13 @@ class IconAppBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return IconButton(
-      icon: Icon(
+      icon: const Icon(
         Icons.account_circle_sharp,
         size: 32,
       ),
       onPressed: () {
         alterarPerfil = !alterarPerfil;
-        debugPrint('${alterarPerfil}');
+        debugPrint('$alterarPerfil');
       },
     );
   }
@@ -762,12 +801,12 @@ class TituloWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.fromLTRB(8, 16, 0, 16),
+      padding: const EdgeInsets.fromLTRB(8, 16, 0, 16),
       child: Align(
         child: Text(
           tituloWidget,
           textAlign: TextAlign.left,
-          style: TextStyle(
+          style: const TextStyle(
             color: Colors.white,
             fontSize: 24,
             fontWeight: FontWeight.bold,
@@ -815,7 +854,6 @@ class _BarraDeNavegacaoState extends State<BarraDeNavegacao> {
       currentIndex: _selectedIndex,
       selectedItemColor: Theme.of(context).primaryColor,
       onTap: _onItemTapped,
-
     );
   }
 }
