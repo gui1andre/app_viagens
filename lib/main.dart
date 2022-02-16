@@ -555,6 +555,55 @@ class StatusPedidos extends StatelessWidget {
   }
 }
 
+class DetalhesPedido extends StatelessWidget {
+  DetalhesPedido({
+    required this.dataViagem,
+    required this.pedido,
+    required this.qtdPessoas,
+    required this.aereo,
+    required this.hotel,
+    required this.veiculo,
+    required this.idImagem,
+    required this.nomeCidade,
+  });
+
+  String nomeCidade;
+  String dataViagem;
+  int pedido;
+  int qtdPessoas;
+  int idImagem;
+  bool aereo;
+  bool hotel;
+  bool veiculo;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      decoration: const BoxDecoration(
+        gradient: LinearGradient(
+          begin: Alignment.topRight,
+          end: Alignment.bottomLeft,
+          colors: [
+            Color.fromARGB(999, 59, 149, 254),
+            Colors.indigo,
+          ],
+        ),
+      ),
+      child: Scaffold(
+        backgroundColor: Colors.transparent,
+        appBar: AppBar(
+          backgroundColor: Theme.of(context).primaryColor,
+          centerTitle: true,
+          title: Text('Pedido N${pedido}'),
+          // elevation: 0,
+        ),
+        body: Container(),
+        bottomNavigationBar: const BarraDeNavegacao(),
+      ),
+    );
+  }
+}
+
 class UltimosPedidos extends StatelessWidget {
   const UltimosPedidos({
     required this.dataViagem,
@@ -578,128 +627,145 @@ class UltimosPedidos extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      decoration: BoxDecoration(
-        // color: Colors.white,
-        border: Border.all(color: Colors.black),
-        borderRadius: BorderRadius.circular(16),
-        image: DecorationImage(
-          image: AssetImage(numImagem(idImagem)),
-          fit: BoxFit.cover,
+    return InkWell(
+      onTap: () {
+        final Future<dynamic> future =
+            Navigator.push(context, MaterialPageRoute(builder: (context) {
+          return DetalhesPedido(
+            nomeCidade: nomeCidade,
+            dataViagem: dataViagem,
+            pedido: pedido,
+            qtdPessoas: qtdPessoas,
+            idImagem: idImagem,
+            aereo: aereo,
+            hotel: hotel,
+            veiculo: veiculo,
+          );
+        }));
+      },
+      child: Container(
+        decoration: BoxDecoration(
+          // color: Colors.white,
+          border: Border.all(color: Colors.black),
+          borderRadius: BorderRadius.circular(16),
+          image: DecorationImage(
+            image: AssetImage(numImagem(idImagem)),
+            fit: BoxFit.cover,
+          ),
         ),
-      ),
-      margin: const EdgeInsets.all(8),
-      height: 300,
-      width: 300,
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.end,
-        children: [
-          Container(
-            decoration: BoxDecoration(
-                borderRadius: const BorderRadius.only(
-                    bottomLeft: Radius.circular(16),
-                    bottomRight: Radius.circular(16),
-                    topRight: Radius.circular(8),
-                    topLeft: Radius.circular(8)),
-                boxShadow: [
-                  BoxShadow(
-                    color: Colors.black.withOpacity(0.3),
-                    spreadRadius: 0,
-                    blurRadius: 0,
-                    // changes position of shadow
-                  ),
-                ]),
-            width: 300,
-            height: 80,
-            child: Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      BorderedText(
-                        child: Text(
-                          nomeCidade,
-                          style: const TextStyle(
+        margin: const EdgeInsets.all(8),
+        height: 300,
+        width: 300,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.end,
+          children: [
+            Container(
+              decoration: BoxDecoration(
+                  borderRadius: const BorderRadius.only(
+                      bottomLeft: Radius.circular(16),
+                      bottomRight: Radius.circular(16),
+                      topRight: Radius.circular(8),
+                      topLeft: Radius.circular(8)),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.black.withOpacity(0.3),
+                      spreadRadius: 0,
+                      blurRadius: 0,
+                      // changes position of shadow
+                    ),
+                  ]),
+              width: 300,
+              height: 80,
+              child: Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        BorderedText(
+                          child: Text(
+                            nomeCidade,
+                            style: const TextStyle(
+                                fontSize: 20,
+                                color: Colors.white,
+                                fontWeight: FontWeight.bold),
+                          ),
+                          strokeWidth: 1,
+                          strokeColor: Colors.black,
+                        ),
+                        Row(
+                          children: [
+                            Padding(
+                              padding: const EdgeInsets.only(right: 8),
+                              child: BorderedText(
+                                child: Text(
+                                  '$qtdPessoas',
+                                  style: const TextStyle(
+                                    fontSize: 20,
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
+                                strokeWidth: 1,
+                                strokeColor: Colors.black,
+                              ),
+                            ),
+                            const Icon(
+                              Icons.people,
+                              size: 20,
+                              color: Colors.white,
+                            ),
+                          ],
+                        )
+                      ],
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        BorderedText(
+                          child: Text(
+                            dataViagem,
+                            style: const TextStyle(
                               fontSize: 20,
                               color: Colors.white,
-                              fontWeight: FontWeight.bold),
-                        ),
-                        strokeWidth: 1,
-                        strokeColor: Colors.black,
-                      ),
-                      Row(
-                        children: [
-                          Padding(
-                            padding: const EdgeInsets.only(right: 8),
-                            child: BorderedText(
-                              child: Text(
-                                '$qtdPessoas',
-                                style: const TextStyle(
-                                  fontSize: 20,
-                                  color: Colors.white,
-                                  fontWeight: FontWeight.bold,
-                                ),
-                              ),
-                              strokeWidth: 1,
-                              strokeColor: Colors.black,
+                              fontWeight: FontWeight.bold,
                             ),
                           ),
-                          const Icon(
-                            Icons.people,
-                            size: 20,
-                            color: Colors.white,
-                          ),
-                        ],
-                      )
-                    ],
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      BorderedText(
-                        child: Text(
-                          dataViagem,
-                          style: const TextStyle(
-                            fontSize: 20,
-                            color: Colors.white,
-                            fontWeight: FontWeight.bold,
-                          ),
+                          strokeWidth: 1,
+                          strokeColor: Colors.black,
                         ),
-                        strokeWidth: 1,
-                        strokeColor: Colors.black,
-                      ),
-                      Row(
-                        children: [
-                          Icon(
-                            Icons.airplanemode_active,
-                            color: aereo
-                                ? Colors.white
-                                : Colors.grey.withOpacity(0.2),
-                          ),
-                          Icon(
-                            Icons.apartment,
-                            color: hotel
-                                ? Colors.white
-                                : Colors.grey.withOpacity(0.2),
-                          ),
-                          Icon(
-                            Icons.directions_car,
-                            color: veiculo
-                                ? Colors.white
-                                : Colors.grey.withOpacity(0.2),
-                          ),
-                        ],
-                      )
-                    ],
-                  ),
-                ],
+                        Row(
+                          children: [
+                            Icon(
+                              Icons.airplanemode_active,
+                              color: aereo
+                                  ? Colors.white
+                                  : Colors.grey.withOpacity(0.2),
+                            ),
+                            Icon(
+                              Icons.apartment,
+                              color: hotel
+                                  ? Colors.white
+                                  : Colors.grey.withOpacity(0.2),
+                            ),
+                            Icon(
+                              Icons.directions_car,
+                              color: veiculo
+                                  ? Colors.white
+                                  : Colors.grey.withOpacity(0.2),
+                            ),
+                          ],
+                        )
+                      ],
+                    ),
+                  ],
+                ),
               ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
